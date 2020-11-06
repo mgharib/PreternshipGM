@@ -50,13 +50,13 @@ class LinkedList:
     if not self.head:
       raise Exception("List is empty")
 
-    if self.head.data == target_node_data:
+    if self.head.value == target_node_data:
       self.head = self.head.next
       return
 
     previous_node = self.head
     for node in self:
-      if node.data == target_node_data:
+      if node.value == target_node_data:
         previous_node.next = node.next
         return
       previous_node = node
