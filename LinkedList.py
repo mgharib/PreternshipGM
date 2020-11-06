@@ -1,13 +1,15 @@
 # creates Node class that will hold relevant data at each junction in the linked list
 class Node:
+  
   #constructor
-  def __init__(self, data):
-    self.data = data
-    # functions as pointer to next node-- this is what makes this list "linked"
+  def __init__(self, description, value, vin):
+    self.description = description
+    self.value = value
+    self.vin = vin
     self.next = None
 
   def __repr__(self):
-    return self.data
+    return self.value
 
 # creates Linked List class
 class LinkedList:
@@ -26,7 +28,7 @@ class LinkedList:
     node = self.head
     nodes = []
     while node is not None:
-      nodes.append(node.data)
+      nodes.append(node.value)
       node = node.next
     nodes.append("None")
     return " -> ".join(nodes)
