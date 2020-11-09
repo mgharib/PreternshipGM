@@ -2,14 +2,19 @@
 class Node:
   
   #constructor
-  def __init__(self, description, value, vin):
-    self.description = description
-    self.value = value
+  def __init__(self, vin):
     self.vin = vin
+    self.setting = None
+    self.far = 0
+    self.medium = 0
+    self.near = 0
+    self.speed1 = 0
+    self.speed2 = 0
+    self.speed3 = 0
     self.next = None
 
   def __repr__(self):
-    return self.value
+    return self.vin
 
 # creates Linked List class
 class LinkedList:
@@ -28,7 +33,7 @@ class LinkedList:
     node = self.head
     nodes = []
     while node is not None:
-      nodes.append(node.value)
+      nodes.append(node.vin)
       node = node.next
     nodes.append("None")
     return " -> ".join(nodes)
@@ -50,13 +55,13 @@ class LinkedList:
     if not self.head:
       raise Exception("List is empty")
 
-    if self.head.value == target_node_data:
+    if self.head.vin == target_node_data:
       self.head = self.head.next
       return
 
     previous_node = self.head
     for node in self:
-      if node.value == target_node_data:
+      if node.vin == target_node_data:
         previous_node.next = node.next
         return
       previous_node = node
